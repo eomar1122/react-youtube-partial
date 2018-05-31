@@ -14,8 +14,8 @@ const VideoDetail = ({ selectedVideo }) => {
       <div className="embed-responsive embed-responsive-16by9">
         <iframe src={videoUrl} frameborder="0" className="embed-responsive-item" allowFullScreen></iframe>
       </div>
-      <h2>Video Title Goes Here</h2>
-      <p>Video Description Goes Here</p>
+      <h2>{selectedVideo.snippet.title}</h2>
+      <p>{selectedVideo.snippet.description}</p>
     </Fragment>
   )
 }

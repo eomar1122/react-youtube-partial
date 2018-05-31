@@ -3,6 +3,7 @@ import { Container, Row, Col } from 'reactstrap';
 import YouTubeSearch from 'youtube-api-search';
 import SearchBar from './components/SearchBar';
 import VideoDetail from './components/VideoDetail';
+import VideoList from './components/VideoList';
 const apiKey = 'AIzaSyB7srbWTcZwSArOobujn6uljhdUq0mk7o0';
 
 class App extends Component {
@@ -36,7 +37,7 @@ class App extends Component {
               <VideoDetail selectedVideo={this.state.selectedVideo} />
             </Col>
             <Col md="4">
-              Video List
+              <VideoList videos={this.state.videos} />
             </Col>
           </Row>
         </Container>
