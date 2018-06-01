@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Container, Row, Col } from 'reactstrap';
 import YouTubeSearch from 'youtube-api-search';
+import _ from 'lodash';
 import SearchBar from './components/SearchBar';
 import VideoDetail from './components/VideoDetail';
 import VideoList from './components/VideoList';
@@ -24,12 +25,14 @@ class App extends Component {
   }
 
   render() {
+    // Using lodash library     _.debounce(func, [wait=0], [options={}])
+    const debouncedRunSearch = _.debounce(this.runSearch.bind(this), 700)
     return (
       <div className="App">
         <Container>
           <Row>
             <Col md="12">
-              <SearchBar runSearch={this.runSearch.bind(this)} />
+              <SearchBar runSearch={debouncedRunSearch} />
             </Col>
           </Row>
           <Row>
@@ -37,7 +40,10 @@ class App extends Component {
               <VideoDetail selectedVideo={this.state.selectedVideo} />
             </Col>
             <Col md="4">
-              <VideoList videos={this.state.videos} />
+              <VideoList 
+                videos={this.state.videos} 
+                videoSelect={ (selectedVideo) => this.setState({ selectedVideo })}
+              />
             </Col>
           </Row>
         </Container>

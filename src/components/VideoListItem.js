@@ -1,10 +1,10 @@
-import React from 'react'
+import React from 'react';
 
-const VideoListItem = () => {
+const VideoListItem = ({ video, videoSelect }) => {
   return (
-    <div>
-      
-    </div>
+    <li onClick={() => videoSelect(video)}>
+      <img src={video.snippet.thumbnails.default.url} />
+    </li>
   )
 }
 

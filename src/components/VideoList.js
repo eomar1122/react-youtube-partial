@@ -1,9 +1,14 @@
-import React from 'react'
+import React from 'react';
+import VideoListItem from './VideoListItem';
 
-const VideoList = ({ videos }) => {
+const VideoList = ({ videos, videoSelect }) => {
   const videoArray = videos.map(video => {
     return (
-      <li>Video will go here</li>
+      <VideoListItem 
+        video={ video } 
+        key={ video.id.videoId }
+        videoSelect={ videoSelect }
+      />
     )
   })
   return (
